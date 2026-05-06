@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAVONNI — Páginas Web</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --accent: #ff4d1c;
+        --gray: #f4f2ef;
+        --gray2: #e8e5e0;
+        --muted: #888;
+        --font-head: "Syne", sans-serif;
+        --font-body: "DM Sans", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--white);
+        color: var(--black);
+        overflow-x: hidden;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3rem;
+        height: 60px;
+      }
+      .nav-logo {
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: 1.3rem;
+        color: var(--white);
+        letter-spacing: -0.03em;
+      }
+      .nav-logo span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+      .nav-cta {
+        background: var(--accent);
+        color: var(--white);
+        border: none;
+        padding: 0.5rem 1.25rem;
+        font-family: var(--font-body);
+        font-weight: 500;
+        font-size: 0.875rem;
+        cursor: pointer;
+        border-radius: 2px;
+        transition: opacity 0.2s;
+      }
+      .nav-cta:hover {
+        opacity: 0.88;
+      }
+      .hero {
+        min-height: 92vh;
+        background: var(--black);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-left {
+        padding: 5rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-tag {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--white);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.75rem;
+        border-radius: 2px;
+        margin-bottom: 2rem;
+        width: fit-content;
+      }
+      .hero-title {
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 1;
+        color: var(--white);
+        letter-spacing: -0.04em;
+        margin-bottom: 1.5rem;
+      }
+      .hero-title em {
+        color: var(--accent);
+        font-style: normal;
+      }
+      .hero-title .line2 {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .hero-desc {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.7;
+        max-width: 400px;
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--white);
+        padding: 0.85rem 2rem;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-radius: 2px;
+        transition: transform 0.15s, opacity 0.15s;
+        letter-spacing: 0.02em;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--white);
+        padding: 0.85rem 2rem;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 400;
+        border-radius: 2px;
+        transition: border-color 0.15s;
+      }
+      .btn-secondary:hover {
+        border-color: rgba(255, 255, 255, 0.7);
+      }
+      .hero-right {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-visual {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          #1a1a2e 0%,
+          #16213e 50%,
+          #0f3460 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-mockup {
+        width: 340px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        overflow: hidden;
+        animation: float 4s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+      .mockup-bar {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 0.6rem 1rem;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .dot1 {
+        background: #ff5f56;
+      }
+      .dot2 {
+        background: #ffbd2e;
+      }
+      .dot3 {
+        background: #27c93f;
+      }
+      .mockup-url {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 4px;
+        height: 22px;
+        margin-left: 8px;
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+      }
+      .mockup-url span {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .mockup-body {
+        padding: 1.5rem;
+      }
+      .mockup-hero-bar {
+        background: linear-gradient(90deg, var(--accent) 0%, #ff8a6a 100%);
+        height: 90px;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mockup-hero-bar span {
+        color: white;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .mockup-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 1rem;
+      }
+      .mockup-card {
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 6px;
+        height: 55px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+      }
+      .mockup-card-icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+      }
+      .mockup-card-label {
+        width: 30px;
+        height: 5px;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .mockup-row {
+        height: 10px;
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        margin-bottom: 6px;
+      }
+      .marquee-wrap {
+        background: var(--accent);
+        padding: 0.75rem 0;
+        overflow: hidden;
+      }
+      .marquee-inner {
+        display: flex;
+        gap: 3rem;
+        animation: marquee 22s linear infinite;
+        width: max-content;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .marquee-item {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: var(--white);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .marquee-sep {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .section {
+        padding: 5rem 3rem;
+      }
+      .section-label {
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+      .section-title {
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        letter-spacing: -0.03em;
+        color: var(--black);
+        margin-bottom: 1rem;
+        line-height: 1.1;
+      }
+      .section-desc {
+        color: var(--muted);
+        font-size: 1rem;
+        max-width: 500px;
+        line-height: 1.7;
+        margin-bottom: 3rem;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5px;
+        background: var(--gray2);
+      }
+      .service-card {
+        background: var(--white);
+        padding: 2.5rem 2rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+      .service-card:hover {
+        background: var(--black);
+      }
+      .service-card:hover .service-title {
+        color: var(--white);
+      }
+      .service-card:hover .service-desc {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .service-card:hover .service-num {
+        color: rgba(255, 255, 255, 0.12);
+      }
+      .service-card:hover .service-icon-bg {
+        background: var(--accent);
+      }
+      .service-num {
+        font-family: var(--font-head);
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--gray2);
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        line-height: 1;
+        transition: color 0.2s;
+      }
+      .service-icon-bg {
+        width: 48px;
+        height: 48px;
+        background: var(--gray);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        transition: background 0.2s;
+      }
+      .service-icon {
+        font-size: 22px;
+      }
+      .service-title {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+        color: var(--black);
+        transition: color 0.2s;
+        letter-spacing: -0.02em;
+      }
+      .service-desc {
+        font-size: 0.875rem;
+        color: var(--muted);
+        line-height: 1.6;
+        transition: color 0.2s;
+      }
+      .planes {
+        padding: 5rem 3rem;
+        background: var(--gray);
+      }
+      .planes-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      .plan-card {
+        background: var(--white);
+        border-radius: 4px;
+        padding: 2.5rem 2rem;
+        position: relative;
+        border: 1.5px solid transparent;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+      .plan-card:hover {
+        transform: translateY(-4px);
+      }
+      .plan-card.featured {
+        background: var(--black);
+        border-color: var(--accent);
+      }
+      .plan-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent);
+        color: var(--white);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.75rem;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+      .plan-name {
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .plan-card.featured .plan-name {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .plan-price {
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: 2.4rem;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 0.25rem;
+      }
+      .plan-card.featured .plan-price {
+        color: var(--white);
+      }
+      .plan-period {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+      .plan-card.featured .plan-period {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .plan-features {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+      .plan-features li {
+        font-size: 0.875rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--gray2);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .plan-card.featured .plan-features li {
+        border-bottom-color: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .check {
+        color: var(--accent);
+        font-size: 0.85rem;
+      }
+      .plan-btn {
+        width: 100%;
+        padding: 0.85rem;
+        border-radius: 2px;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: opacity 0.2s;
+        border: 1.5px solid var(--black);
+        background: transparent;
+        color: var(--black);
+      }
+      .plan-card.featured .plan-btn {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--white);
+      }
+      .plan-btn:hover {
+        opacity: 0.75;
+      }
+      .proceso {
+        padding: 5rem 3rem;
+      }
+      .proceso-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        margin-top: 3rem;
+      }
+      .step {
+        padding: 2rem 1.5rem;
+        position: relative;
+        border-right: 1.5px solid var(--gray2);
+      }
+      .step:last-child {
+        border-right: none;
+      }
+      .step-num {
+        font-family: var(--font-head);
+        font-size: 4rem;
+        font-weight: 800;
+        color: var(--gray2);
+        line-height: 1;
+        margin-bottom: 1rem;
+      }
+      .step-title {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .step-desc {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .cta-section {
+        background: var(--black);
+        padding: 6rem 3rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-bg-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-head);
+        font-size: 12rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.03);
+        white-space: nowrap;
+        pointer-events: none;
+        letter-spacing: -0.05em;
+      }
+      .cta-title {
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        color: var(--white);
+        letter-spacing: -0.03em;
+        margin-bottom: 1rem;
+        position: relative;
+      }
+      .cta-title em {
+        color: var(--accent);
+        font-style: normal;
+      }
+      .cta-sub {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+      }
+      .cta-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        position: relative;
+      }
+      footer {
+        background: var(--black);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 2rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-logo {
+        font-family: var(--font-head);
+        font-weight: 800;
+        color: var(--white);
+        font-size: 1rem;
+      }
+      .footer-logo span {
+        color: var(--accent);
+      }
+      .footer-copy {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-links a {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+      }
+      .footer-links a:hover {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      /* ===== RESPONSIVE INDEX ===== */
+      @media (max-width: 768px) {
+        nav {
+          padding: 0 1.25rem;
+          height: 56px;
+        }
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .hero-left {
+          padding: 3rem 1.25rem 2rem;
+        }
+        .hero-right {
+          display: none;
+        }
+
+        .section {
+          padding: 3rem 1.25rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: 1px;
+        }
+
+        .planes {
+          padding: 3rem 1.25rem;
+        }
+        .planes-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .proceso {
+          padding: 3rem 1.25rem;
+        }
+        .proceso-steps {
+          grid-template-columns: 1fr 1fr;
+          gap: 0;
+        }
+        .step {
+          border-right: none;
+          border-bottom: 1.5px solid var(--gray2);
+        }
+
+        .cta-section {
+          padding: 4rem 1.25rem;
+        }
+        .cta-actions {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        footer {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1.5rem 1.25rem;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .proceso-steps {
+          grid-template-columns: 1fr;
+        }
+        .hero-title {
+          font-size: 2.4rem;
+        }
+        .cta-bg-text {
+          font-size: 5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">CAVONNI<span>-</span>web pages</div>
+      <ul class="nav-links">
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Portafolio</a></li>
+        <li><a href="#">Planes</a></li>
+        <li><a href="#">Proceso</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+      <button
+        class="nav-cta"
+        onclick="sendPrompt('Quiero cotizar mi página web con CAVONNI studio')"
+      >
+        Cotizar ahora
+      </button>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-tag">🇨🇴 Hecho en Cali</div>
+        <h1 class="hero-title">
+          Tu negocio<br />
+          <em>merece</em><br />
+          <span class="line2">brillar online</span>
+        </h1>
+        <p class="hero-desc">
+          Creamos páginas web que venden, posicionan y enamoran a tus clientes.
+          Desde landing pages hasta tiendas virtuales completas.
+        </p>
+        <div class="hero-actions">
+          <button
+            class="btn-primary"
+            onclick="sendPrompt('Quiero ver el portafolio de CAVONNI studio')"
+          >
+            Ver portafolio
+          </button>
+          <button
+            class="btn-secondary"
+            onclick="sendPrompt('¿Cómo es el proceso para crear mi página web con CAVONNI?')"
+          >
+            ¿Cómo funciona?
+          </button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-visual">
+          <div class="hero-mockup">
+            <div class="mockup-bar">
+              <div class="dot dot1"></div>
+              <div class="dot dot2"></div>
+              <div class="dot dot3"></div>
+              <div class="mockup-url"><span>tunegocio.com</span></div>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-hero-bar"><span>Tu marca aquí ✦</span></div>
+              <div class="mockup-grid">
+                <div class="mockup-card">
+                  <div
+                    class="mockup-card-icon"
+                    style="background: rgba(255, 77, 28, 0.3)"
+                  ></div>
+                  <div class="mockup-card-label"></div>
+                </div>
+                <div class="mockup-card">
+                  <div
+                    class="mockup-card-icon"
+                    style="background: rgba(28, 28, 255, 0.3)"
+                  ></div>
+                  <div class="mockup-card-label"></div>
+                </div>
+                <div class="mockup-card">
+                  <div
+                    class="mockup-card-icon"
+                    style="background: rgba(255, 255, 255, 0.15)"
+                  ></div>
+                  <div class="mockup-card-label"></div>
+                </div>
+              </div>
+              <div class="mockup-row" style="width: 80%"></div>
+              <div class="mockup-row" style="width: 60%"></div>
+              <div class="mockup-row" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-wrap">
+      <div class="marquee-inner">
+        <span class="marquee-item">Diseño Web</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Catálogo Web</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Programas Web</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Landing Pages</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Código QR</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Tiendas Virtuales</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Mantenimiento Web</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Diseño Web</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Catálogo Web</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Programas Web</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Landing Pages</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Código QR</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Tiendas Virtuales</span
+        ><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Mantenimiento Web</span
+        ><span class="marquee-sep">✦</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="section-label">Servicios</div>
+      <h2 class="section-title">
+        Todo lo que necesitas<br />para estar en internet
+      </h2>
+      <p class="section-desc">
+        Desde el concepto hasta el lanzamiento, te acompañamos en cada paso de
+        tu presencia digital.
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <div class="service-icon-bg">
+            <span class="service-icon">🖥️</span>
+          </div>
+          <div class="service-title">Páginas web corporativas</div>
+          <div class="service-desc">
+            Sitios profesionales que comunican la esencia de tu marca y generan
+            confianza desde el primer clic.
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">02</span>
+          <div class="service-icon-bg">
+            <span class="service-icon">🛒</span>
+          </div>
+          <div class="service-title">Tiendas virtuales</div>
+          <div class="service-desc">
+            E-commerce completos con carrito, pasarela de pagos, inventario y
+            todo lo que necesitas para vender online.
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">03</span>
+          <div class="service-icon-bg">
+            <span class="service-icon">🚀</span>
+          </div>
+          <div class="service-title">Landing pages</div>
+          <div class="service-desc">
+            Páginas de aterrizaje optimizadas para convertir visitantes en
+            clientes con alta tasa de conversión.
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">04</span>
+          <div class="service-icon-bg">
+            <span class="service-icon">📱</span>
+          </div>
+          <div class="service-title">Código QR</div>
+          <div class="service-desc">
+            Comparte tu negocio en todo tu marketing. Tus clientes te encuentran
+            con un solo escaneo.
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">05</span>
+          <div class="service-icon-bg">
+            <span class="service-icon">✏️</span>
+          </div>
+          <div class="service-title">Diseño web</div>
+          <div class="service-desc">
+            Modernizamos tu sitio actual sin perder su presencia. Más rápido,
+            bonito y que convierte clientes fijos.
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">06</span>
+          <div class="service-icon-bg">
+            <span class="service-icon">🔧</span>
+          </div>
+          <div class="service-title">Mantenimiento mensual</div>
+          <div class="service-desc">
+            Tu web siempre actualizada, segura y funcionando. Actualizaciones,
+            backups y soporte incluidos.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="planes">
+      <div class="section-label">Planes</div>
+      <h2 class="section-title">Elige el plan<br />que va contigo</h2>
+      <div class="planes-grid">
+        <div class="plan-card">
+          <div class="plan-name">Básico</div>
+          <div class="plan-price">$299.900</div>
+          <div class="plan-period">COP — pago único</div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span> Landing page de 1 página</li>
+            <li><span class="check">✓</span> Diseño responsive</li>
+            <li><span class="check">✓</span> Formulario de contacto</li>
+            <li><span class="check">✓</span> Sub dominio incluido</li>
+            <li><span class="check">✓</span> Enlace directo a WhatsApp</li>
+            <li><span class="check">✓</span> 1 mes de soporte</li>
+          </ul>
+          <button
+            class="plan-btn"
+            onclick="sendPrompt('Quiero el plan Básico de CAVONNI studio por $299.900')"
+          >
+            Comenzar →
+          </button>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-badge">Más popular</div>
+          <div class="plan-name">Premium</div>
+          <div class="plan-price" style="color: var(--accent)">$639.900</div>
+          <div class="plan-period">COP — pago único</div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span> Sitio web hasta 6 páginas</li>
+            <li><span class="check">✓</span> Dominio personalizado</li>
+            <li><span class="check">✓</span> Blog integrado</li>
+            <li><span class="check">✓</span> Pasarela de pagos</li>
+            <li><span class="check">✓</span> 1 mes de soporte</li>
+          </ul>
+          <button
+            class="plan-btn"
+            onclick="sendPrompt('Quiero el plan Premium de CAVONNI studio por $639.900')"
+          >
+            Comenzar →
+          </button>
+        </div>
+        <div class="plan-card">
+          <div class="plan-name">E-commerce</div>
+          <div class="plan-price">$839.900</div>
+          <div class="plan-period">COP — pago único</div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span> Tienda virtual completa</li>
+            <li><span class="check">✓</span> Pasarela de pagos</li>
+            <li><span class="check">✓</span> Gestión de inventario</li>
+            <li><span class="check">✓</span> Dominio personalizado</li>
+            <li><span class="check">✓</span> 1 mes de soporte</li>
+          </ul>
+          <button
+            class="plan-btn"
+            onclick="sendPrompt('Quiero el plan E-commerce de CAVONNI studio por $839.900')"
+          >
+            Comenzar →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="proceso">
+      <div class="section-label">Proceso</div>
+      <h2 class="section-title">De la idea al<br />lanzamiento</h2>
+      <div class="proceso-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-title">Descubrimiento</div>
+          <div class="step-desc">
+            Entendemos tu negocio, objetivos y audiencia para crear la
+            estrategia digital correcta.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-title">Diseño</div>
+          <div class="step-desc">
+            Creamos prototipos y maquetas visuales. Tú apruebas cada detalle
+            antes de escribir una línea de código.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-title">Desarrollo</div>
+          <div class="step-desc">
+            Construimos tu sitio con las mejores tecnologías: rápido, seguro y
+            optimizado.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-title">Lanzamiento</div>
+          <div class="step-desc">
+            Publicamos tu web, configuramos tu dominio y quedas listo para
+            recibir clientes.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-bg-text">CAVONNI</div>
+      <h2 class="cta-title">¿Listo para <em>crecer</em><br />en internet?</h2>
+      <p class="cta-sub">
+        Dedicación exclusiva para llevar tu negocio colombiano al siguiente
+        nivel. Construyamos juntos tu presencia digital.
+      </p>
+      <div class="cta-actions">
+        <button
+          class="btn-primary"
+          onclick="sendPrompt('Quiero agendar una llamada gratuita con CAVONNI studio para hablar de mi proyecto web')"
+        >
+          Agendar llamada gratis ↗
+        </button>
+        <button
+          class="btn-secondary"
+          onclick="sendPrompt('¿Qué tipos de páginas web han creado para negocios en Cali?')"
+        >
+          Ver portafolio
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-logo">CAVONNI<span>.</span>studio</div>
+      <div class="footer-copy">© 2026 CAVONNI Studio — Cali, Colombia</div>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Contactar</a>
+      </div>
+    </footer>
+  </body>
+</html>
